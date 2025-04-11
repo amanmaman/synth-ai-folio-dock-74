@@ -7,7 +7,8 @@ import {
   Briefcase, 
   Code2, 
   FileText, 
-  MessageSquare 
+  MessageSquare,
+  Gamepad
 } from "lucide-react";
 
 const navItems = [
@@ -16,6 +17,7 @@ const navItems = [
   { name: "Projects", path: "/projects", icon: Briefcase },
   { name: "Skills", path: "/skills", icon: Code2 },
   { name: "Blog", path: "/blog", icon: FileText },
+  { name: "Gaming", path: "/gaming", icon: Gamepad },
   { name: "Contact", path: "/contact", icon: MessageSquare },
 ];
 

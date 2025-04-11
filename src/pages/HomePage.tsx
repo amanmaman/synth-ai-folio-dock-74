@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -23,18 +24,18 @@ const HomePage = () => {
           or plotting my next chess move.
         </p>
         <div className="flex gap-4 justify-center">
-          <a 
-            href="#contact" 
+          <Link 
+            to="/contact" 
             className="px-8 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
           >
             Get in Touch
-          </a>
-          <a 
-            href="#projects" 
+          </Link>
+          <Link 
+            to="/projects" 
             className="px-8 py-3 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
           >
             View Work
-          </a>
+          </Link>
         </div>
       </motion.div>
     </div>
