@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Gamepad, ChessKnight } from "lucide-react";
+import { Gamepad, Chess } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const GamingPage = () => {
@@ -20,7 +20,7 @@ const GamingPage = () => {
       <Tabs defaultValue="chess" className="w-full">
         <TabsList className="mb-8">
           <TabsTrigger value="chess" className="flex items-center gap-2">
-            <ChessKnight size={18} />
+            <Chess size={18} />
             <span>Chess</span>
           </TabsTrigger>
           <TabsTrigger value="doom" className="flex items-center gap-2">
