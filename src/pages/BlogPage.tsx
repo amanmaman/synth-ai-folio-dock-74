@@ -1,5 +1,20 @@
 
-const blogPosts = [
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string;
+  readTime: string;
+  image: string;
+  slug: string;
+}
+
+// In a real application, this would be fetched from an API or parsed from MDX files
+const blogPosts: BlogPost[] = [
   {
     id: 1,
     title: "Understanding Transformer Architecture in NLP",
@@ -7,7 +22,8 @@ const blogPosts = [
     date: "April 2, 2025",
     category: "Machine Learning",
     readTime: "8 min read",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    slug: "transformer-architecture"
   },
   {
     id: 2,
@@ -16,7 +32,8 @@ const blogPosts = [
     date: "March 18, 2025",
     category: "Gaming & AI",
     readTime: "6 min read",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    slug: "game-mechanics-ai"
   },
   {
     id: 3,
@@ -25,7 +42,8 @@ const blogPosts = [
     date: "March 5, 2025",
     category: "Problem Solving",
     readTime: "5 min read",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    slug: "chess-strategies"
   },
   {
     id: 4,
@@ -34,7 +52,8 @@ const blogPosts = [
     date: "February 20, 2025",
     category: "Programming",
     readTime: "12 min read",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    slug: "neural-network-scratch"
   },
   {
     id: 5,
@@ -43,7 +62,8 @@ const blogPosts = [
     date: "February 8, 2025",
     category: "AI Ethics",
     readTime: "7 min read",
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
+    slug: "ai-scientific-research"
   }
 ];
 
@@ -72,12 +92,12 @@ const BlogPage = () => {
               </div>
               <h2 className="text-2xl font-medium mb-2">{post.title}</h2>
               <p className="text-gray-600 mb-4">{post.excerpt}</p>
-              <a 
-                href={`/blog/${post.id}`} 
+              <Link 
+                to={`/blog/${post.slug}`} 
                 className="text-black font-medium hover:underline"
               >
                 Read More →
-              </a>
+              </Link>
             </div>
           </div>
         ))}

@@ -1,0 +1,117 @@
+
+---
+title: "Implementing a Neural Network from Scratch"
+excerpt: "A step-by-step guide to building a neural network without using any frameworks."
+date: "February 20, 2025"
+category: "Programming"
+readTime: "12 min read"
+image: "/placeholder.svg"
+---
+
+# Implementing a Neural Network from Scratch
+
+While powerful frameworks like TensorFlow and PyTorch have made building neural networks more accessible, implementing one from scratch offers invaluable insights into how they actually work. In this post, I'll walk through the process step by step.
+
+## The Building Blocks
+
+A basic neural network consists of:
+
+1. **Neurons**: Computational units that perform weighted sums of inputs and apply activation functions
+2. **Layers**: Collections of neurons that transform data
+3. **Weights and Biases**: Parameters that are adjusted during training
+4. **Activation Functions**: Non-linear functions that allow the network to learn complex patterns
+5. **Loss Function**: Measures how far the network's predictions are from the actual values
+
+## Forward Propagation
+
+Let's start with implementing forward propagation:
+
+```python
+import numpy as np
+
+class NeuralNetwork:
+    def __init__(self, layer_sizes):
+        self.weights = []
+        self.biases = []
+        
+        # Initialize weights and biases
+        for i in range(len(layer_sizes) - 1):
+            self.weights.append(np.random.randn(layer_sizes[i], layer_sizes[i+1]) * 0.1)
+            self.biases.append(np.zeros((1, layer_sizes[i+1])))
+    
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
+    
+    def forward(self, x):
+        self.activations = [x]
+        self.z_values = []
+        
+        for i in range(len(self.weights)):
+            # Calculate weighted sum
+            z = np.dot(self.activations[i], self.weights[i]) + self.biases[i]
+            self.z_values.append(z)
+            
+            # Apply activation function
+            a = self.sigmoid(z)
+            self.activations.append(a)
+            
+        return self.activations[-1]
+```
+
+## Backpropagation
+
+The heart of neural network training is backpropagation, where we calculate gradients and update weights:
+
+```python
+def backward(self, y):
+    m = y.shape[0]
+    self.dweights = [None] * len(self.weights)
+    self.dbiases = [None] * len(self.biases)
+    
+    # Output layer error
+    delta = self.activations[-1] - y
+    
+    # Backpropagate through layers
+    for l in reversed(range(len(self.weights))):
+        self.dweights[l] = np.dot(self.activations[l].T, delta) / m
+        self.dbiases[l] = np.sum(delta, axis=0, keepdims=True) / m
+        
+        if l > 0:
+            # Calculate error for previous layer
+            delta = np.dot(delta, self.weights[l].T) * (self.activations[l] * (1 - self.activations[l]))
+```
+
+## Training Loop
+
+Finally, we implement the training loop to iterate through our data and update parameters:
+
+```python
+def train(self, X, y, learning_rate=0.1, epochs=1000):
+    for epoch in range(epochs):
+        # Forward pass
+        output = self.forward(X)
+        
+        # Backward pass
+        self.backward(y)
+        
+        # Update weights and biases
+        for l in range(len(self.weights)):
+            self.weights[l] -= learning_rate * self.dweights[l]
+            self.biases[l] -= learning_rate * self.dbiases[l]
+        
+        # Calculate and print loss occasionally
+        if epoch % 100 == 0:
+            loss = -np.mean(y * np.log(output) + (1 - y) * np.log(1 - output))
+            print(f"Epoch {epoch}, Loss: {loss}")
+```
+
+## Practical Application
+
+With this implementation, you can now train a neural network on simple problems like XOR or basic image classification. The code is intentionally minimal to highlight the core concepts, but you can extend it with features like:
+
+- Additional activation functions (ReLU, tanh)
+- Different optimization algorithms (Adam, RMSprop)
+- Regularization techniques (dropout, L2)
+- Batch processing for larger datasets
+
+Building neural networks from scratch deepens your understanding of the mathematical foundations and gives you greater control over the learning process. Even if you primarily use frameworks in practice, this knowledge helps you debug issues and optimize your models more effectively.

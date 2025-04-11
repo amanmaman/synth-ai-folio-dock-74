@@ -6,8 +6,7 @@ import {
   User, 
   Briefcase, 
   Code2, 
-  FileText, 
-  MessageSquare,
+  FileText,
   Gamepad
 } from "lucide-react";
 
@@ -18,7 +17,6 @@ const navItems = [
   { name: "Skills", path: "/skills", icon: Code2 },
   { name: "Blog", path: "/blog", icon: FileText },
   { name: "Gaming", path: "/gaming", icon: Gamepad },
-  { name: "Contact", path: "/contact", icon: MessageSquare },
 ];
 
 const DockNavbar = () => {
