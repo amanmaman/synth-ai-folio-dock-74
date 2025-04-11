@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Gamepad } from "lucide-react";
 import { GiChessKnight } from "react-icons/gi";
-import { RiGhostLine, RiBombLine, RiSwordLine, RiLayoutGridLine } from "react-icons/ri";
+import { RiGhostLine, RiBombFill, RiSwordLine, RiLayoutGridLine } from "react-icons/ri";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const GamingPage = () => {
@@ -38,7 +38,7 @@ const GamingPage = () => {
             <span>Pacman</span>
           </TabsTrigger>
           <TabsTrigger value="minebomb" className="flex items-center gap-2">
-            <RiBombLine size={18} />
+            <RiBombFill size={18} />
             <span>Minesweeper</span>
           </TabsTrigger>
           <TabsTrigger value="dune2" className="flex items-center gap-2">
