@@ -1,57 +1,50 @@
 
----
-title: "Understanding Transformer Architecture in NLP"
-excerpt: "A deep dive into how transformers work and why they've revolutionized natural language processing tasks."
-date: "April 2, 2025"
-category: "Machine Learning"
-readTime: "8 min read"
-image: "/placeholder.svg"
----
+export const frontmatter = {
+  title: "Understanding Transformer Architecture",
+  excerpt: "A deep dive into the transformer architecture that powers modern language models",
+  date: "2025-04-10",
+  category: "Machine Learning",
+  readTime: "8 min read",
+  image: "/placeholder.svg"
+};
 
-# Understanding Transformer Architecture in NLP
+# Understanding Transformer Architecture
 
-The Transformer architecture has revolutionized natural language processing since its introduction in the paper "Attention Is All You Need" by Vaswani et al. in 2017.
+The transformer architecture has revolutionized natural language processing and other fields since its introduction in the "Attention Is All You Need" paper.
 
 ## Key Components
 
 ### Self-Attention Mechanism
 
-The self-attention mechanism allows the model to weigh the importance of different words in a sentence when encoding a specific word, regardless of their positions.
+The self-attention mechanism allows the model to focus on different parts of the input sequence when producing outputs:
+
+1. **Query, Key, and Value vectors** are created for each token
+2. **Attention scores** are computed between all tokens
+3. **Weighted sum** of value vectors creates the context-aware representation
 
 ### Multi-Head Attention
 
-Multiple attention mechanisms run in parallel, allowing the model to focus on different aspects of the input simultaneously.
+Instead of a single attention function, transformers use multiple attention heads in parallel:
 
-### Positional Encoding
+- Each head can focus on different aspects of the input
+- Results are concatenated and projected to the final dimension
 
-Since transformers process all words simultaneously (unlike RNNs), positional encodings are added to give the model information about word positions.
+### Position Encodings
+
+Since transformers process all tokens simultaneously (unlike RNNs), position information must be explicitly added:
+
+- Sinusoidal position encodings
+- Learned position embeddings
 
 ## Applications
 
-- **BERT**: Bidirectional Encoder Representations from Transformers
-- **GPT**: Generative Pre-trained Transformer
-- **T5**: Text-to-Text Transfer Transformer
+Transformers power many state-of-the-art models including:
 
-## Code Example
+- **BERT** for natural language understanding
+- **GPT** series for text generation
+- **Vision Transformers** for image processing
+- **T5** for text-to-text tasks
 
-```python
-import torch
-import torch.nn as nn
+> "Attention is all you need" - The mantra of modern NLP
 
-class SelfAttention(nn.Module):
-    def __init__(self, embed_size, heads):
-        super(SelfAttention, self).__init__()
-        self.embed_size = embed_size
-        self.heads = heads
-        self.head_dim = embed_size // heads
-        
-        assert (self.head_dim * heads == embed_size), "Embed size needs to be divisible by heads"
-        
-        # Define the linear layers for queries, keys, and values
-        self.values = nn.Linear(self.head_dim, self.head_dim, bias=False)
-        self.keys = nn.Linear(self.head_dim, self.head_dim, bias=False)
-        self.queries = nn.Linear(self.head_dim, self.head_dim, bias=False)
-        self.fc_out = nn.Linear(heads * self.head_dim, embed_size)
-```
-
-The transformer architecture continues to be the foundation for most state-of-the-art models in NLP today.
+The transformer architecture continues to evolve with innovations like sparse attention, efficient transformers, and domain-specific adaptations.

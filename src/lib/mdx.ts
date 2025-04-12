@@ -24,15 +24,15 @@ export const useMDXFile = (slug: string) => {
         const module = await import(`../content/blog/${slug}.mdx`);
         
         // Extract frontmatter
-        const { frontmatter } = module;
+        const frontmatter = module.frontmatter || {};
         
         setPost({
           slug,
-          title: frontmatter.title, 
-          excerpt: frontmatter.excerpt, 
-          date: frontmatter.date, 
-          category: frontmatter.category, 
-          readTime: frontmatter.readTime,
+          title: frontmatter.title || 'Untitled', 
+          excerpt: frontmatter.excerpt || 'No excerpt available', 
+          date: frontmatter.date || new Date().toISOString().split('T')[0], 
+          category: frontmatter.category || 'Uncategorized', 
+          readTime: frontmatter.readTime || '1 min read',
           image: frontmatter.image || "/placeholder.svg",
           content: module.default
         });
@@ -60,19 +60,29 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
       .map(([filePath, module]) => {
         const moduleAny = module as any;
         
-        // Check if frontmatter exists before accessing properties
+        // Extract filename as slug
+        const slug = filePath.split('/').pop()?.replace('.mdx', '') || '';
+        
+        // Handle case when frontmatter is missing
         if (!moduleAny.frontmatter) {
-          console.error(`No frontmatter found for file: ${filePath}`);
-          return null;
+          console.log(`Creating default frontmatter for: ${filePath}`);
+          return {
+            slug,
+            title: `Post: ${slug}`,
+            excerpt: 'Post content',
+            date: new Date().toISOString().split('T')[0],
+            category: 'Uncategorized',
+            readTime: '1 min read',
+            image: "/placeholder.svg"
+          };
         }
         
         const { frontmatter } = moduleAny;
-        const slug = filePath.split('/').pop()?.replace('.mdx', '') || '';
         
         return {
           slug,
-          title: frontmatter.title || 'Untitled',
-          excerpt: frontmatter.excerpt || 'No excerpt available',
+          title: frontmatter.title || `Post: ${slug}`,
+          excerpt: frontmatter.excerpt || 'Post content',
           date: frontmatter.date || new Date().toISOString().split('T')[0],
           category: frontmatter.category || 'Uncategorized',
           readTime: frontmatter.readTime || '1 min read',
