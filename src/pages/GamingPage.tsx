@@ -93,14 +93,16 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://js-dos.com/games/doom.exe.html"
+              src="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom.jsdos?anonymous=1"
               className="w-full h-[600px]"
               onLoad={() => setDoomLoaded(true)}
               style={{ opacity: doomLoaded ? 1 : 0 }}
+              allow="autoplay; gamepad"
+              sandbox="allow-scripts allow-same-origin allow-modals"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by js-dos
+            Powered by DOS Zone
           </p>
         </TabsContent>
         
@@ -119,7 +121,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://arcadeclassics.net/classic-pacman-game/"
+              src="https://www.google.com/logos/2010/pacman10-i.html"
               className="w-full h-[600px]"
               onLoad={() => setPacmanLoaded(true)}
               style={{ opacity: pacmanLoaded ? 1 : 0 }}
@@ -127,7 +129,7 @@ const GamingPage = () => {
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by Arcade Classics
+            Powered by Google Doodle
           </p>
         </TabsContent>
         
@@ -146,15 +148,16 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://minesweeper.online/game/play/0"
+              src="https://www.free-minesweeper.com/minesweeper-classic/game/"
               className="w-full h-[600px]"
               onLoad={() => setMinesweeperLoaded(true)}
               style={{ opacity: minesweeperLoaded ? 1 : 0 }}
               sandbox="allow-scripts allow-same-origin"
+              title="Minesweeper"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by Minesweeper Online
+            Powered by Free Minesweeper
           </p>
         </TabsContent>
         
@@ -173,15 +176,16 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://play-classic.games/play/strategy/dune-2/play"
+              src="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdune2.jsdos?anonymous=1"
               className="w-full h-[600px]"
               onLoad={() => setDune2Loaded(true)}
               style={{ opacity: dune2Loaded ? 1 : 0 }}
-              sandbox="allow-scripts allow-same-origin"
+              sandbox="allow-scripts allow-same-origin allow-modals"
+              allow="autoplay"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by Play Classic Games
+            Powered by DOS Zone
           </p>
         </TabsContent>
         
@@ -200,11 +204,12 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://tetris.com/play-tetris"
+              src="https://tetris.com/games-content/play-tetris-content/resources/project-tetriscom/"
               className="w-full h-[600px]"
               onLoad={() => setTetrisLoaded(true)}
               style={{ opacity: tetrisLoaded ? 1 : 0 }}
               sandbox="allow-scripts allow-same-origin"
+              title="Tetris"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
