@@ -119,14 +119,15 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://js-dos.com/games/pacman.zip.html"
+              src="https://arcadeclassics.net/classic-pacman-game/"
               className="w-full h-[600px]"
               onLoad={() => setPacmanLoaded(true)}
               style={{ opacity: pacmanLoaded ? 1 : 0 }}
+              sandbox="allow-scripts allow-same-origin"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by js-dos
+            Powered by Arcade Classics
           </p>
         </TabsContent>
         
@@ -145,14 +146,15 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://js-dos.com/games/minesweeper.exe.html"
+              src="https://minesweeper.online/game/play/0"
               className="w-full h-[600px]"
               onLoad={() => setMinesweeperLoaded(true)}
               style={{ opacity: minesweeperLoaded ? 1 : 0 }}
+              sandbox="allow-scripts allow-same-origin"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by js-dos
+            Powered by Minesweeper Online
           </p>
         </TabsContent>
         
@@ -171,14 +173,15 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://js-dos.com/games/dune2.zip.html"
+              src="https://play-classic.games/play/strategy/dune-2/play"
               className="w-full h-[600px]"
               onLoad={() => setDune2Loaded(true)}
               style={{ opacity: dune2Loaded ? 1 : 0 }}
+              sandbox="allow-scripts allow-same-origin"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by js-dos
+            Powered by Play Classic Games
           </p>
         </TabsContent>
         
@@ -197,14 +200,15 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://js-dos.com/games/tetris.zip.html"
+              src="https://tetris.com/play-tetris"
               className="w-full h-[600px]"
               onLoad={() => setTetrisLoaded(true)}
               style={{ opacity: tetrisLoaded ? 1 : 0 }}
+              sandbox="allow-scripts allow-same-origin"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by js-dos
+            Powered by Tetris.com
           </p>
         </TabsContent>
       </Tabs>
