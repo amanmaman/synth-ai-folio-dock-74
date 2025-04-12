@@ -3,17 +3,19 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Gamepad } from "lucide-react";
 import { GiChessKnight } from "react-icons/gi";
-import { RiGhostLine, RiSwordLine, RiLayoutGridLine } from "react-icons/ri";
-import { FaBomb } from "react-icons/fa";
+import { RiGhostLine, RiSwordLine } from "react-icons/ri";
+import { GiPunchBlast, GiSamuraiSword } from "react-icons/gi";
+import { IoGameControllerOutline } from "react-icons/io5";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const GamingPage = () => {
   const [chessLoaded, setChessLoaded] = useState(false);
   const [doomLoaded, setDoomLoaded] = useState(false);
   const [pacmanLoaded, setPacmanLoaded] = useState(false);
-  const [minesweeperLoaded, setMinesweeperLoaded] = useState(false);
   const [dune2Loaded, setDune2Loaded] = useState(false);
-  const [tetrisLoaded, setTetrisLoaded] = useState(false);
+  const [contraLoaded, setContraLoaded] = useState(false);
+  const [mortalKombatLoaded, setMortalKombatLoaded] = useState(false);
+  const [diamondRushLoaded, setDiamondRushLoaded] = useState(false);
 
   return (
     <div className="max-w-6xl mx-auto py-12">
@@ -38,17 +40,21 @@ const GamingPage = () => {
             <RiGhostLine size={18} />
             <span>Pacman</span>
           </TabsTrigger>
-          <TabsTrigger value="minebomb" className="flex items-center gap-2">
-            <FaBomb size={18} />
-            <span>Minesweeper</span>
-          </TabsTrigger>
           <TabsTrigger value="dune2" className="flex items-center gap-2">
             <RiSwordLine size={18} />
             <span>Dune 2</span>
           </TabsTrigger>
-          <TabsTrigger value="tetris" className="flex items-center gap-2">
-            <RiLayoutGridLine size={18} />
-            <span>Tetris</span>
+          <TabsTrigger value="contra" className="flex items-center gap-2">
+            <GiSamuraiSword size={18} />
+            <span>Contra</span>
+          </TabsTrigger>
+          <TabsTrigger value="mortalKombat" className="flex items-center gap-2">
+            <GiPunchBlast size={18} />
+            <span>Mortal Kombat</span>
+          </TabsTrigger>
+          <TabsTrigger value="diamondRush" className="flex items-center gap-2">
+            <IoGameControllerOutline size={18} />
+            <span>Diamond Rush</span>
           </TabsTrigger>
         </TabsList>
         
@@ -93,7 +99,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://js-dos.com/doom/"
+              src="https://dos.zone/player/?bundleUrl=https://cdn.dos.zone/original/2X/2/2cb4f0edbb236c2a261a7e00b95d38fc0210e6ca.jsdos"
               className="w-full h-[600px]"
               onLoad={() => setDoomLoaded(true)}
               style={{ opacity: doomLoaded ? 1 : 0 }}
@@ -102,7 +108,7 @@ const GamingPage = () => {
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by js-dos
+            Powered by DOS Zone
           </p>
         </TabsContent>
         
@@ -121,7 +127,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://pacman.live/play.html"
+              src="https://www.google.com/logos/2010/pacman10-i.html"
               className="w-full h-[600px]"
               onLoad={() => setPacmanLoaded(true)}
               style={{ opacity: pacmanLoaded ? 1 : 0 }}
@@ -129,35 +135,7 @@ const GamingPage = () => {
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by Pacman.live
-          </p>
-        </TabsContent>
-        
-        <TabsContent value="minebomb" className="border rounded-lg p-4">
-          <div className="aspect-video w-full max-w-3xl mx-auto bg-gray-100 rounded-md overflow-hidden">
-            {!minesweeperLoaded && (
-              <div className="w-full h-full flex items-center justify-center">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-center"
-                >
-                  <div className="animate-spin h-8 w-8 border-2 border-black border-t-transparent rounded-full mx-auto mb-4"></div>
-                  <p>Loading Minesweeper...</p>
-                </motion.div>
-              </div>
-            )}
-            <iframe 
-              src="https://minesweeper.online/embed/7"
-              className="w-full h-[600px]"
-              onLoad={() => setMinesweeperLoaded(true)}
-              style={{ opacity: minesweeperLoaded ? 1 : 0 }}
-              sandbox="allow-scripts allow-same-origin"
-              title="Minesweeper"
-            ></iframe>
-          </div>
-          <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by Minesweeper Online
+            Powered by Google Doodle
           </p>
         </TabsContent>
         
@@ -176,7 +154,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://js-dos.com/dune2/"
+              src="https://dos.zone/player/?bundleUrl=https://cdn.dos.zone/custom/dos/dune2-v111.jsdos&file=DUNE2.EXE"
               className="w-full h-[600px]"
               onLoad={() => setDune2Loaded(true)}
               style={{ opacity: dune2Loaded ? 1 : 0 }}
@@ -185,13 +163,13 @@ const GamingPage = () => {
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by js-dos
+            Powered by DOS Zone
           </p>
         </TabsContent>
         
-        <TabsContent value="tetris" className="border rounded-lg p-4">
+        <TabsContent value="contra" className="border rounded-lg p-4">
           <div className="aspect-video w-full max-w-3xl mx-auto bg-gray-100 rounded-md overflow-hidden">
-            {!tetrisLoaded && (
+            {!contraLoaded && (
               <div className="w-full h-full flex items-center justify-center">
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -199,21 +177,77 @@ const GamingPage = () => {
                   className="text-center"
                 >
                   <div className="animate-spin h-8 w-8 border-2 border-black border-t-transparent rounded-full mx-auto mb-4"></div>
-                  <p>Loading Tetris...</p>
+                  <p>Loading Contra...</p>
                 </motion.div>
               </div>
             )}
             <iframe 
-              src="https://tetris.com/play-tetris"
+              src="https://www.retrogames.cc/embed/16841-contra-usa.html"
               className="w-full h-[600px]"
-              onLoad={() => setTetrisLoaded(true)}
-              style={{ opacity: tetrisLoaded ? 1 : 0 }}
-              sandbox="allow-scripts allow-same-origin"
-              title="Tetris"
+              onLoad={() => setContraLoaded(true)}
+              style={{ opacity: contraLoaded ? 1 : 0 }}
+              sandbox="allow-scripts allow-same-origin allow-modals"
+              allow="autoplay; fullscreen"
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by Tetris.com
+            Powered by RetroGames
+          </p>
+        </TabsContent>
+        
+        <TabsContent value="mortalKombat" className="border rounded-lg p-4">
+          <div className="aspect-video w-full max-w-3xl mx-auto bg-gray-100 rounded-md overflow-hidden">
+            {!mortalKombatLoaded && (
+              <div className="w-full h-full flex items-center justify-center">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center"
+                >
+                  <div className="animate-spin h-8 w-8 border-2 border-black border-t-transparent rounded-full mx-auto mb-4"></div>
+                  <p>Loading Mortal Kombat...</p>
+                </motion.div>
+              </div>
+            )}
+            <iframe 
+              src="https://www.retrogames.cc/embed/16420-mortal-kombat-usa-rev-1-0.html"
+              className="w-full h-[600px]"
+              onLoad={() => setMortalKombatLoaded(true)}
+              style={{ opacity: mortalKombatLoaded ? 1 : 0 }}
+              sandbox="allow-scripts allow-same-origin allow-modals"
+              allow="autoplay; fullscreen"
+            ></iframe>
+          </div>
+          <p className="text-sm text-gray-500 mt-4 text-center">
+            Powered by RetroGames
+          </p>
+        </TabsContent>
+        
+        <TabsContent value="diamondRush" className="border rounded-lg p-4">
+          <div className="aspect-video w-full max-w-3xl mx-auto bg-gray-100 rounded-md overflow-hidden">
+            {!diamondRushLoaded && (
+              <div className="w-full h-full flex items-center justify-center">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center"
+                >
+                  <div className="animate-spin h-8 w-8 border-2 border-black border-t-transparent rounded-full mx-auto mb-4"></div>
+                  <p>Loading Diamond Rush...</p>
+                </motion.div>
+              </div>
+            )}
+            <iframe 
+              src="https://www.retrogames.cc/embed/48292-gameloft-diamond-rush-128x160.html"
+              className="w-full h-[600px]"
+              onLoad={() => setDiamondRushLoaded(true)}
+              style={{ opacity: diamondRushLoaded ? 1 : 0 }}
+              sandbox="allow-scripts allow-same-origin allow-modals"
+              allow="autoplay; fullscreen"
+            ></iframe>
+          </div>
+          <p className="text-sm text-gray-500 mt-4 text-center">
+            Powered by RetroGames
           </p>
         </TabsContent>
       </Tabs>
