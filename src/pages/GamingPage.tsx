@@ -29,20 +29,21 @@ const GamingPage = () => {
     },
     {
       id: "doom",
-      src: "https://dos.zone/player/?bundleUrl=https://cdn.dos.zone/original/2X/2/2cb4f0edbb236c2a261a7e00b95d38fc0210e6ca.jsdos",
-      poweredBy: "DOS Zone",
+      src: "https://playclassic.games/games/first-person-shooter-dos-games-online/play-doom-online/",
+      poweredBy: "PlayClassic Games",
       sandbox: "allow-scripts allow-same-origin allow-modals",
       allow: "autoplay; gamepad"
     },
     {
       id: "pacman",
-      src: "https://www.google.com/logos/2010/pacman10-i.html",
-      poweredBy: "Google Doodle"
+      src: "https://playcanv.as/p/nL6fCDql/",
+      poweredBy: "PlayCanvas",
+      sandbox: "allow-scripts allow-same-origin"
     },
     {
       id: "dune2",
-      src: "https://dos.zone/player/?bundleUrl=https://cdn.dos.zone/custom/dos/dune2-v111.jsdos&file=DUNE2.EXE",
-      poweredBy: "DOS Zone",
+      src: "https://playclassic.games/games/real-time-strategy-dos-games-online/play-dune-2-the-building-of-a-dynasty-online/",
+      poweredBy: "PlayClassic Games",
       sandbox: "allow-scripts allow-same-origin allow-modals",
       allow: "autoplay"
     },

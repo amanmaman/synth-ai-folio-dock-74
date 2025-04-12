@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { TabsContent } from "@/components/ui/tabs";
+import LoadingIndicator from "./LoadingIndicator";
 
 const PacmanGame = () => {
   const [loaded, setLoaded] = useState(false);
@@ -9,20 +10,9 @@ const PacmanGame = () => {
   return (
     <TabsContent value="pacman" className="border rounded-lg p-4">
       <div className="aspect-video w-full max-w-3xl mx-auto bg-gray-100 rounded-md overflow-hidden">
-        {!loaded && (
-          <div className="w-full h-full flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center"
-            >
-              <div className="animate-spin h-8 w-8 border-2 border-black border-t-transparent rounded-full mx-auto mb-4"></div>
-              <p>Loading Pacman...</p>
-            </motion.div>
-          </div>
-        )}
+        {!loaded && <LoadingIndicator message="Loading Pacman..." />}
         <iframe 
-          src="https://www.google.com/logos/2010/pacman10-i.html"
+          src="https://playcanv.as/p/nL6fCDql/"
           className="w-full h-[600px]"
           onLoad={() => setLoaded(true)}
           style={{ opacity: loaded ? 1 : 0 }}
@@ -30,7 +20,7 @@ const PacmanGame = () => {
         ></iframe>
       </div>
       <p className="text-sm text-gray-500 mt-4 text-center">
-        Powered by Google Doodle
+        Powered by PlayCanvas
       </p>
     </TabsContent>
   );
