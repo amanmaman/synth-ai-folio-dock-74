@@ -9,7 +9,7 @@ export interface BlogPost {
   category: string;
   readTime: string;
   image: string;
-  content?: string;
+  content?: React.ComponentType<any> | string;
 }
 
 export const useMDXFile = (slug: string) => {
