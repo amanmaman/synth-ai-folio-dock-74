@@ -93,7 +93,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom.jsdos?anonymous=1"
+              src="https://js-dos.com/doom/"
               className="w-full h-[600px]"
               onLoad={() => setDoomLoaded(true)}
               style={{ opacity: doomLoaded ? 1 : 0 }}
@@ -102,7 +102,7 @@ const GamingPage = () => {
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by DOS Zone
+            Powered by js-dos
           </p>
         </TabsContent>
         
@@ -121,7 +121,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://www.google.com/logos/2010/pacman10-i.html"
+              src="https://pacman.live/play.html"
               className="w-full h-[600px]"
               onLoad={() => setPacmanLoaded(true)}
               style={{ opacity: pacmanLoaded ? 1 : 0 }}
@@ -129,7 +129,7 @@ const GamingPage = () => {
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by Google Doodle
+            Powered by Pacman.live
           </p>
         </TabsContent>
         
@@ -148,7 +148,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://www.free-minesweeper.com/minesweeper-classic/game/"
+              src="https://minesweeper.online/embed/7"
               className="w-full h-[600px]"
               onLoad={() => setMinesweeperLoaded(true)}
               style={{ opacity: minesweeperLoaded ? 1 : 0 }}
@@ -157,7 +157,7 @@ const GamingPage = () => {
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by Free Minesweeper
+            Powered by Minesweeper Online
           </p>
         </TabsContent>
         
@@ -176,7 +176,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdune2.jsdos?anonymous=1"
+              src="https://js-dos.com/dune2/"
               className="w-full h-[600px]"
               onLoad={() => setDune2Loaded(true)}
               style={{ opacity: dune2Loaded ? 1 : 0 }}
@@ -185,7 +185,7 @@ const GamingPage = () => {
             ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-4 text-center">
-            Powered by DOS Zone
+            Powered by js-dos
           </p>
         </TabsContent>
         
@@ -204,7 +204,7 @@ const GamingPage = () => {
               </div>
             )}
             <iframe 
-              src="https://tetris.com/games-content/play-tetris-content/resources/project-tetriscom/"
+              src="https://tetris.com/play-tetris"
               className="w-full h-[600px]"
               onLoad={() => setTetrisLoaded(true)}
               style={{ opacity: tetrisLoaded ? 1 : 0 }}
