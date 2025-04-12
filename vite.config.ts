@@ -5,6 +5,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import mdx from "@mdx-js/rollup";
 import remarkGfm from "remark-gfm";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -14,8 +16,11 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     mdx({
-      remarkPlugins: [remarkGfm],
-      // Remove rehypeRaw from MDX processing
+      remarkPlugins: [
+        remarkGfm,
+        remarkFrontmatter,
+        [remarkMdxFrontmatter, { name: "frontmatter" }]
+      ],
     }),
     react(),
     mode === 'development' &&

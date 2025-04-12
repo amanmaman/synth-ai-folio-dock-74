@@ -26,9 +26,6 @@ export const useMDXFile = (slug: string) => {
         // Extract frontmatter
         const { frontmatter } = module;
         
-        // For MDX content, we need to get the raw content and render it separately
-        const rawContent = module.default;
-        
         setPost({
           slug,
           title: frontmatter.title, 
@@ -37,7 +34,7 @@ export const useMDXFile = (slug: string) => {
           category: frontmatter.category, 
           readTime: frontmatter.readTime,
           image: frontmatter.image || "/placeholder.svg",
-          content: typeof rawContent === 'string' ? rawContent : ''
+          content: module.default
         });
       } catch (err) {
         console.error("Error loading MDX file:", err);
