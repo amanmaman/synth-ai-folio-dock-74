@@ -24,17 +24,20 @@ export const useMDXFile = (slug: string) => {
         const module = await import(`../content/blog/${slug}.mdx`);
         
         // Extract frontmatter
-        const { title, excerpt, date, category, readTime, image } = module.frontmatter;
+        const { frontmatter } = module;
+        
+        // For MDX content, we need to get the raw content and render it separately
+        const rawContent = module.default;
         
         setPost({
           slug,
-          title, 
-          excerpt, 
-          date, 
-          category, 
-          readTime,
-          image: image || "/placeholder.svg",
-          content: module.default
+          title: frontmatter.title, 
+          excerpt: frontmatter.excerpt, 
+          date: frontmatter.date, 
+          category: frontmatter.category, 
+          readTime: frontmatter.readTime,
+          image: frontmatter.image || "/placeholder.svg",
+          content: typeof rawContent === 'string' ? rawContent : ''
         });
       } catch (err) {
         console.error("Error loading MDX file:", err);
