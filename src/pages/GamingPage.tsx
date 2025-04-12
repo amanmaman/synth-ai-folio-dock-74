@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Gamepad } from "lucide-react";
+import { Gamepad, Sword } from "lucide-react";
 import { GiChessKnight } from "react-icons/gi";
 import { RiGhostLine, RiSwordLine } from "react-icons/ri";
-import { GiPunchBlast, GiSamuraiSword } from "react-icons/gi";
+import { GiPunchBlast } from "react-icons/gi";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -45,7 +44,7 @@ const GamingPage = () => {
             <span>Dune 2</span>
           </TabsTrigger>
           <TabsTrigger value="contra" className="flex items-center gap-2">
-            <GiSamuraiSword size={18} />
+            <Sword size={18} />
             <span>Contra</span>
           </TabsTrigger>
           <TabsTrigger value="mortalKombat" className="flex items-center gap-2">
