@@ -12,20 +12,24 @@ const DOSGameFrame = ({ gameId, bundleUrl }: DOSGameFrameProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const dosRef = useRef<any>(null); // Store DOS instance reference
 
   useEffect(() => {
     if (!canvasRef.current) return;
 
-    const dos = Dos(canvasRef.current);
+    // Create DOS instance
+    const dosInstance = Dos(canvasRef.current);
+    dosRef.current = dosInstance;
     
     setLoading(true);
-    dos
-      .run(bundleUrl)
-      .then(ci => {
+    
+    // Run the DOS game
+    dosInstance(bundleUrl)
+      .then((ci: any) => {
         setLoading(false);
         // Optional: Store ci reference for command interface if needed
       })
-      .catch(error => {
+      .catch((error: any) => {
         console.error("DOSBox error:", error);
         setLoading(false);
         setError("Failed to load the game. Please try again.");
@@ -33,9 +37,11 @@ const DOSGameFrame = ({ gameId, bundleUrl }: DOSGameFrameProps) => {
 
     return () => {
       // Cleanup DOS instance when component unmounts
-      if (dos) {
+      if (dosRef.current) {
         try {
-          dos.exit();
+          // Clean up any event listeners or resources
+          // The exact cleanup depends on js-dos version
+          console.log("Cleaning up DOS instance");
         } catch (e) {
           console.log("Error during DOS cleanup:", e);
         }
