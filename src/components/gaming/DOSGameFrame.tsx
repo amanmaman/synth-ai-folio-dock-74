@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import { Dos } from "js-dos";
+import Dos from "js-dos";
 import LoadingIndicator from "./LoadingIndicator";
 
 interface DOSGameFrameProps {
