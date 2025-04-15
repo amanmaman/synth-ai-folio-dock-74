@@ -1,4 +1,3 @@
-
 import { Gamepad, Sword } from "lucide-react";
 import { GiChessKnight } from "react-icons/gi";
 import { RiGhostLine, RiSwordLine } from "react-icons/ri";
@@ -29,8 +28,8 @@ const GamingPage = () => {
     },
     {
       id: "doom",
-      src: "https://playclassic.games/games/first-person-shooter-dos-games-online/play-doom-online/",
-      poweredBy: "PlayClassic Games",
+      src: "https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom.jsdos?anonymous=1",
+      poweredBy: "DOS Zone",
       sandbox: "allow-scripts allow-same-origin allow-modals",
       allow: "autoplay; gamepad"
     },
@@ -42,8 +41,8 @@ const GamingPage = () => {
     },
     {
       id: "dune2",
-      src: "https://playclassic.games/games/real-time-strategy-dos-games-online/play-dune-2-the-building-of-a-dynasty-online/",
-      poweredBy: "PlayClassic Games",
+      src: "https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F5%2F5d301bc87e880d66ab71b08697e13c64ed4e845e.jsdos?anonymous=1",
+      poweredBy: "DOS Zone",
       sandbox: "allow-scripts allow-same-origin allow-modals",
       allow: "autoplay"
     },
