@@ -32,7 +32,8 @@ const GamingPage = () => {
       src: "https://dos.zone/doom-dec-1993/",
       poweredBy: "DOS Zone",
       sandbox: "allow-scripts allow-same-origin allow-modals allow-popups allow-forms",
-      allow: "autoplay; fullscreen; gamepad"
+      allow: "autoplay; fullscreen; gamepad",
+      dosBundle: "https://cdn.dos.zone/custom/dos/doom-dec-1993/js-dos-api.js"
     },
     {
       id: "pacman",
@@ -45,7 +46,8 @@ const GamingPage = () => {
       src: "https://dos.zone/dune-2-dos-1992/",
       poweredBy: "DOS Zone",
       sandbox: "allow-scripts allow-same-origin allow-modals allow-popups allow-forms",
-      allow: "autoplay; fullscreen"
+      allow: "autoplay; fullscreen",
+      dosBundle: "https://cdn.dos.zone/custom/dos/dune-2-dos-1992/js-dos-api.js"
     },
     {
       id: "contra",
@@ -100,6 +102,7 @@ const GamingPage = () => {
             poweredBy={game.poweredBy}
             sandbox={game.sandbox}
             allow={game.allow}
+            dosBundle={game.dosBundle}
           />
         ))}
       </Tabs>
