@@ -5,6 +5,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import mdx from "@mdx-js/rollup";
 import remarkGfm from "remark-gfm";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -16,6 +18,8 @@ export default defineConfig(({ mode }) => ({
     mdx({
       remarkPlugins: [
         remarkGfm,
+        remarkFrontmatter,
+        [remarkMdxFrontmatter, { name: "metadata" }] // Changed from "frontmatter" to "metadata"
       ],
     }),
     react(),

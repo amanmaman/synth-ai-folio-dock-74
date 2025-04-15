@@ -2,6 +2,15 @@
 declare module '*.mdx' {
   import type { ComponentType } from 'react';
   
+  export const metadata: {
+    title?: string;
+    excerpt?: string;
+    date?: string;
+    category?: string;
+    readTime?: string;
+    image?: string;
+  };
+  
   export const frontmatter: {
     title?: string;
     excerpt?: string;
