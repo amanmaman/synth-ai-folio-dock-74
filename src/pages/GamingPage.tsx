@@ -1,4 +1,3 @@
-
 import { Gamepad, Sword } from "lucide-react";
 import { GiChessKnight } from "react-icons/gi";
 import { RiGhostLine, RiSwordLine } from "react-icons/ri";
@@ -29,11 +28,10 @@ const GamingPage = () => {
     },
     {
       id: "doom",
-      src: "https://dos.zone/doom-dec-1993/",
+      src: "https://dos.zone/play/?g=doom-dec-1993",
       poweredBy: "DOS Zone",
       sandbox: "allow-scripts allow-same-origin allow-modals allow-popups allow-forms",
-      allow: "autoplay; fullscreen; gamepad",
-      dosBundle: "https://cdn.dos.zone/custom/dos/doom-dec-1993/js-dos-api.js"
+      allow: "autoplay; fullscreen"
     },
     {
       id: "pacman",
@@ -43,11 +41,10 @@ const GamingPage = () => {
     },
     {
       id: "dune2",
-      src: "https://dos.zone/dune-2-dos-1992/",
+      src: "https://dos.zone/play/?g=dune-2-dos-1992",
       poweredBy: "DOS Zone",
       sandbox: "allow-scripts allow-same-origin allow-modals allow-popups allow-forms",
-      allow: "autoplay; fullscreen",
-      dosBundle: "https://cdn.dos.zone/custom/dos/dune-2-dos-1992/js-dos-api.js"
+      allow: "autoplay; fullscreen"
     },
     {
       id: "contra",
